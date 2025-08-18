@@ -1,0 +1,142 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Professional Plant Nursery Design System - Dark Theme */
+
+@layer base {
+  :root {
+    /* Dark Forest Theme */
+    --background: 0 0% 7%;
+    --foreground: 120 15% 95%;
+
+    --card: 0 0% 10%;
+    --card-foreground: 120 15% 95%;
+
+    --popover: 0 0% 8%;
+    --popover-foreground: 120 15% 95%;
+
+    --primary: 142 76% 36%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 0 0% 15%;
+    --secondary-foreground: 120 15% 90%;
+
+    --muted: 0 0% 12%;
+    --muted-foreground: 120 10% 65%;
+
+    --accent: 161 94% 30%;
+    --accent-foreground: 0 0% 100%;
+
+    --success: 142 76% 36%;
+    --success-foreground: 0 0% 100%;
+
+    --warning: 45 93% 47%;
+    --warning-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 0 0% 20%;
+    --input: 0 0% 18%;
+    --ring: 142 76% 36%;
+
+    --radius: 0.75rem;
+
+    /* Plant-specific colors */
+    --plant-green: 142 76% 36%;
+    --plant-dark-green: 161 94% 30%;
+    --plant-light-green: 142 50% 60%;
+    --earth-brown: 30 25% 25%;
+    --soil-dark: 25 15% 15%;
+
+    /* Gradients */
+    --gradient-forest: linear-gradient(135deg, hsl(142 76% 36% / 0.9), hsl(161 94% 30% / 0.9));
+    --gradient-earth: linear-gradient(180deg, hsl(30 25% 25% / 0.8), hsl(25 15% 15% / 0.9));
+    --gradient-glow: radial-gradient(circle, hsl(142 76% 36% / 0.2), transparent 70%);
+
+    /* Shadows */
+    --shadow-plant: 0 10px 40px hsl(142 76% 36% / 0.2);
+    --shadow-glow: 0 0 60px hsl(142 76% 36% / 0.3);
+    --shadow-card: 0 20px 60px hsl(0 0% 0% / 0.4);
+
+    /* Animations */
+    --transition-smooth: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    --transition-bounce: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+    cursor: none;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    cursor: none;
+  }
+
+  /* Custom Round Cursor */
+  .cursor {
+    position: fixed;
+    width: 20px;
+    height: 20px;
+    background: hsl(var(--primary));
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    mix-blend-mode: difference;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transform: translate(-50%, -50%);
+  }
+
+  .cursor-follower {
+    position: fixed;
+    width: 40px;
+    height: 40px;
+    border: 2px solid hsl(var(--primary) / 0.5);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9998;
+    transition: all 0.15s ease-out;
+    transform: translate(-50%, -50%);
+  }
+
+  /* Hover States */
+  .cursor.hover {
+    width: 60px;
+    height: 60px;
+    background: hsl(var(--accent));
+    mix-blend-mode: normal;
+  }
+
+  .cursor-follower.hover {
+    width: 80px;
+    height: 80px;
+    border-color: hsl(var(--accent) / 0.8);
+  }
+
+  /* Click State */
+  .cursor.click {
+    width: 16px;
+    height: 16px;
+    background: hsl(var(--warning));
+  }
+
+  /* Text Hover */
+  .cursor.text {
+    width: 8px;
+    height: 30px;
+    border-radius: 4px;
+    background: hsl(var(--foreground));
+  }
+
+  /* Button Hover */
+  .cursor.button {
+    width: 50px;
+    height: 50px;
+    background: hsl(var(--success));
+    box-shadow: 0 0 20px hsl(var(--success) / 0.5);
+  }
+}
